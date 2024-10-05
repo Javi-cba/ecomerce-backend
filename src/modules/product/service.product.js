@@ -11,5 +11,8 @@ async function findAll() {
 async function insertMany(product) {
   return await productModel.insertMany(product);
 }
+async function deleteAll() {
+  return await productModel.deleteMany();
+}
 
 module.exports = { findOneById, findAll, insertMany }; // Cambiar exportación a CommonJS
