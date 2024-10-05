@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv'); // Importación correcta
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const productRouter = require('./src/modules/product/routes.products'); // Sin .js al final en CommonJS
+const productRouter = require('./src/modules/product/routes.products');
 
 dotenv.config();
 const PORT = process.env.PORT;

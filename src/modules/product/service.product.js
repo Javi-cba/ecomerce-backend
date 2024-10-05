@@ -1,4 +1,4 @@
-const productModel = require('../../models/product'); // Sin .js al final en CommonJS
+const productModel = require('../../models/product');
 
 async function findOneById(_id) {
   return await productModel.findById(_id).exec();
@@ -15,4 +15,4 @@ async function deleteAll() {
   return await productModel.deleteMany();
 }
 
-module.exports = { findOneById, findAll, insertMany }; // Cambiar exportación a CommonJS
+module.exports = { findOneById, findAll, insertMany, deleteAll }; // exportación CommonJS

@@ -1,5 +1,5 @@
 const express = require('express');
-const productService = require('./service.product'); // Sin .js al final en CommonJS
+const productService = require('./service.product');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -32,4 +32,4 @@ router.delete('/delete-all', async (req, res) => {
   }
 });
 
-module.exports = router; // Cambiar exportación a CommonJS
+module.exports = router; // exportación CommonJS
