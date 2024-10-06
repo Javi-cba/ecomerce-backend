@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const orderRouter = require('./src/modules/order/routes.order');
 const productRouter = require('./src/modules/product/routes.products');
 
 dotenv.config();
@@ -38,7 +39,8 @@ mongoose
     console.error('Error al conectar a MongoDB:', error); // Mensaje de error
   });
 
-// Rutas
+// Rutas De Los Servicios
+app.use('/api/order', orderRouter);
 app.use('/api/product', productRouter);
 
 app.get('/', async (request, response) => {

@@ -1,18 +1,21 @@
 const productModel = require('../../models/product');
 
-async function findOneById(_id) {
-  return await productModel.findById(_id).exec();
-}
-
 async function findAll() {
-  return await productModel.find().exec();
+  try {
+    return await productModel.find().sort({ title: 1 }).exec();
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
 }
 
 async function insertMany(product) {
-  return await productModel.insertMany(product);
-}
-async function deleteAll() {
-  return await productModel.deleteMany();
+  try {
+    return await productModel.insertMany(product);
+  } catch (error) {
+    console.error('Error inserting products:', error);
+    throw error;
+  }
 }
 
-module.exports = { findOneById, findAll, insertMany, deleteAll }; // exportación CommonJS
+module.exports = { findAll, insertMany }; // exportación CommonJS
